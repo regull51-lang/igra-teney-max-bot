@@ -20,7 +20,7 @@ RUN npm ci --omit=dev
 
 COPY bot.js ./
 
-ENV NODE_USE_SYSTEM_CA=1
-ENV NODE_EXTRA_CA_CERTS=/usr/local/share/max-russian-ca-bundle.pem
+ENV NODE_OPTIONS=--use-openssl-ca
+ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 CMD ["node", "bot.js"]
